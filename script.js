@@ -89,7 +89,7 @@ window.addEventListener('mousemove', (e)=>{
 
 // 平滑動畫循環
 (function animate(){
-  const ease = 0.14; // 平滑係數，數值越小越慢
+  const ease = 0.28; // 平滑係數，數值越小越慢
   currentTX += (targetTX - currentTX) * ease;
   currentTY += (targetTY - currentTY) * ease;
   if(Math.abs(targetTX - currentTX) < 0.3) currentTX = targetTX;
