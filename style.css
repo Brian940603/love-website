@@ -1,4 +1,4 @@
-:root{--bg:#111;--modal:#fff;--accent:#ff6b6b}
+:root{--bg:#ffff00;--modal:#fff;--accent:#ff6b6b}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#222,#111);color:#ffff00}
 .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
