@@ -123,7 +123,7 @@ function startFireworks(){
 
   function launch(x,y){
     const hue = Math.floor(random(0,360));
-    for(let i=0;i<120;i++){
+    for(let i=0;i<240;i++){
       const speed = random(1,6);
       const angle = random(0,Math.PI*2);
       particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:random(60,120),hue,alpha:1});
