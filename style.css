@@ -12,8 +12,7 @@ html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background
   left: 50%;
   top: 50%;
   transform: translate(calc(-50% - 80px), -50%);
-  background: var(--accent);
-  color: #fff;
+  {background:var(--accent);color:#fff}
 }
 .disagree{background:#ddd;color:#333;position:fixed;margin:0;z-index:9999}
 
