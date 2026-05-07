@@ -1,21 +1,213 @@
-:root{--bg:#111;--modal:#fff;--accent:#ff6b6b}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#222,#111);color:#111}
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-.dialog{background:var(--modal);padding:30px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.5);text-align:center;max-width:90%;}
-.dialog h2{margin:0 0 20px;font-size:24px}
-.buttons{position:relative;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
-.btn{padding:10px 20px;margin:0 10px;border-radius:8px;border:0;cursor:pointer;font-size:16px}
-.btn:focus{outline:2px solid #ffd}
-.agree{background:var(--accent);color:#fff}
-.disagree{background:#ddd;color:#333;position:fixed;margin:0;z-index:9999}
+/* =========================
+   全域變數設定
+========================= */
+:root{
+  --bg:#ffd700; /* 網頁背景色（黃色） */
+  --modal:#fff;
+  --accent:#ff6b6b;
+}
 
-/* Disabled disagree button styling */
-.disagree:disabled{pointer-events:none;opacity:0.98;filter:none}
-.hidden{display:none}
-.congrats.hidden{display:none !important}
-.congrats{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.8));color:#fff}
-.congrats h1{font-size:96px;margin:0 0 20px;text-shadow:0 4px 16px rgba(0,0,0,.6)}
-#fireworks{position:absolute;inset:0;display:block;width:100%;height:100%}
+/* =========================
+   全域基本設定
+========================= */
+*{
+  box-sizing:border-box; /* 寬高包含 padding/border */
+}
 
-@media (max-width:420px){.dialog{padding:20px}.congrats h1{font-size:48px}}
+html,
+body{
+  height:100%; /* 滿版高度 */
+  margin:0; /* 移除預設邊距 */
+
+  font-family:Arial,Helvetica,sans-serif;
+
+  /* 深色漸層背景 */
+  background:linear-gradient(180deg,#222,#111);
+
+  /* 預設文字顏色 */
+  color:#111;
+}
+
+/* =========================
+   全螢幕 Modal 容器
+========================= */
+.modal{
+  position:fixed; /* 固定在畫面 */
+  inset:0; /* top/right/bottom/left 全 0 */
+
+  display:flex;
+
+  /* 水平垂直置中 */
+  align-items:center;
+  justify-content:center;
+}
+
+/* =========================
+   中央對話框
+========================= */
+.dialog{
+  background:var(--modal);
+
+  padding:30px;
+
+  border-radius:12px; /* 圓角 */
+
+  /* 陰影效果 */
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+  text-align:center;
+
+  /* 避免手機太寬 */
+  max-width:90%;
+}
+
+/* 對話框標題 */
+.dialog h2{
+  margin:0 0 20px;
+  font-size:24px;
+}
+
+/* =========================
+   按鈕區域
+========================= */
+.buttons{
+  position:relative;
+
+  height:56px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 20px;
+}
+
+/* 所有按鈕共用樣式 */
+.btn{
+  padding:10px 20px;
+
+  margin:0 10px;
+
+  border-radius:8px;
+
+  border:0;
+
+  cursor:pointer;
+
+  font-size:16px;
+}
+
+/* 鍵盤 focus 外框 */
+.btn:focus{
+  outline:2px solid #ffd;
+}
+
+/* =========================
+   同意按鈕
+========================= */
+.agree{
+  background:var(--accent);
+  color:#fff;
+}
+
+/* =========================
+   不同意按鈕
+========================= */
+.disagree{
+  background:#ddd;
+  color:#333;
+
+  position:fixed;
+
+  margin:0;
+
+  /* 永遠最上層 */
+  z-index:9999;
+}
+
+/* 禁用狀態 */
+.disagree:disabled{
+  pointer-events:none;
+
+  opacity:0.98;
+
+  filter:none;
+}
+
+/* =========================
+   隱藏元素
+========================= */
+.hidden{
+  display:none;
+}
+
+/* 強制隱藏恭喜畫面 */
+.congrats.hidden{
+  display:none !important;
+}
+
+/* =========================
+   恭喜畫面
+========================= */
+.congrats{
+  position:fixed;
+  inset:0;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  /* 上下排列 */
+  flex-direction:column;
+
+  /* 半透明黑色背景 */
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,.6),
+    rgba(0,0,0,.8)
+  );
+
+  color:#fff;
+}
+
+/* 恭喜大標題 */
+.congrats h1{
+  font-size:96px;
+
+  margin:0 0 20px;
+
+  /* 文字陰影 */
+  text-shadow:0 4px 16px rgba(0,0,0,.6);
+}
+
+/* =========================
+   煙火動畫畫布
+========================= */
+#fireworks{
+  position:absolute;
+
+  inset:0;
+
+  display:block;
+
+  width:100%;
+  height:100%;
+}
+
+/* =========================
+   手機版 RWD
+========================= */
+@media (max-width:420px){
+
+  /* 對話框縮小 */
+  .dialog{
+    padding:20px;
+  }
+
+  /* 標題縮小 */
+  .congrats h1{
+    font-size:48px;
+  }
+}
