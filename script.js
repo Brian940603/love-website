@@ -1,23 +1,37 @@
-const agree = document.getElementById("agree");
 const disagree = document.getElementById("disagree");
 
-agree.addEventListener("click", () => {
-  alert("太好了 ❤️");
-});
+disagree.style.position = "fixed";
 
-disagree.addEventListener("mouseenter", () => {
+document.addEventListener("mousemove", (e) => {
 
-  const btnWidth = disagree.offsetWidth;
-  const btnHeight = disagree.offsetHeight;
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
 
-  const maxX = window.innerWidth - btnWidth;
-  const maxY = window.innerHeight - btnHeight;
+  const rect = disagree.getBoundingClientRect();
 
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
+  const btnX = rect.left;
+  const btnY = rect.top;
 
-  disagree.style.position = "fixed";
-  disagree.style.left = `${x}px`;
-  disagree.style.top = `${y}px`;
+  const distanceX = mouseX - btnX;
+  const distanceY = mouseY - btnY;
+
+  const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+  // 滑鼠靠近時開始逃跑
+  if (distance < 150) {
+
+    const moveX = -distanceX / distance * 20;
+    const moveY = -distanceY / distance * 20;
+
+    let newX = btnX + moveX;
+    let newY = btnY + moveY;
+
+    // 防止跑出畫面
+    newX = Math.max(0, Math.min(window.innerWidth - rect.width, newX));
+    newY = Math.max(0, Math.min(window.innerHeight - rect.height, newY));
+
+    disagree.style.left = `${newX}px`;
+    disagree.style.top = `${newY}px`;
+  }
 
 });
