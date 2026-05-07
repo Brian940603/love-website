@@ -1,6 +1,6 @@
 :root{--bg:#111;--modal:#fff;--accent:#ff6b6b}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#222,#111);color:#111}
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#222,#111);color:ffff00}
 .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
 .dialog{background:var(--modal);padding:30px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.5);text-align:center;max-width:90%;}
 .dialog h2{margin:0 0 20px;font-size:24px}
