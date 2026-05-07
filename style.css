@@ -1,0 +1,67 @@
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#ffd6e7;
+  overflow:hidden;
+}
+
+.modal{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.dialog{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,0,0,.2);
+}
+
+.buttons{
+  margin-top:20px;
+  position:relative;
+}
+
+.btn{
+  padding:12px 30px;
+  font-size:20px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  margin:10px;
+}
+
+.agree{
+  background:#ff4d88;
+  color:white;
+}
+
+.disagree{
+  background:#999;
+  color:white;
+  position:absolute;
+}
+
+.hidden{
+  display:none;
+}
+
+.congrats{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:black;
+  color:white;
+}
+
+#fireworks{
+  position:fixed;
+  inset:0;
+}
