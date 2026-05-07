@@ -144,7 +144,7 @@ function startFireworks(){
       ctx.fill();
     }
     frames++;
-    if(frames % 30 === 0){
+    if(frames % 15 === 0){
       const lx = random(100, canvas.width-100);
       const ly = random(100, canvas.height/2);
       launch(lx,ly);
