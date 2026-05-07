@@ -104,6 +104,34 @@ disagree.disabled = true;
 disagree.setAttribute('tabindex', '-1');
 disagree.addEventListener('click', (e)=>{ e.preventDefault(); });
 
+const agree = document.getElementById("agree");
+
+agree.style.position = "fixed";
+
+let targetX = window.innerWidth / 2;
+let targetY = window.innerHeight / 2;
+
+let currentX = targetX;
+let currentY = targetY;
+
+document.addEventListener("mousemove", (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
+});
+
+function animate() {
+
+  currentX += (targetX - currentX) * 0.08;
+  currentY += (targetY - currentY) * 0.08;
+
+  agree.style.left = currentX + "px";
+  agree.style.top = currentY + "px";
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
 // 同意按鈕：顯示恭喜並啟動煙火
 agree.addEventListener('click', ()=>{
   modal.classList.add('hidden');
